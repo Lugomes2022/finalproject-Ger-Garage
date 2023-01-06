@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #f78b00;
+    font-family: "Roboto", sans-serif;
+    font-size: 100%;
+    color: black;
+}
+
+.container{
+    width: 1200px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+nav{
+    width: 300px;
+    height: 500px;
+    box-sizing: border-box;
+    background-color: #00285f;
+    padding: 10px;
+    float: left;
+}
+
+section{
+    background-color: #00285f;
+    color: #fff;
+    width: 870px;
+    height: 500px;
+    margin-left: 10px;
+    float: left;
+}
+
+ul.menu {
+    list-style-type: none;
+    }
+
+ul.menu li {
+    width: 250px;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    background-color: #f78b00;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+ul.menu li:hover{
+    background-color: #f78b00;
+}
+
+.btn{
+    width: 120px;
+    height: 40px;
+    border: 1px solid;
+}
+
+.Save{
+    background-color: #f78b00;
+    background-repeat: no-repeat;
+    background-position: 10% 50%;
+}
+
+.Clear{
+    background-color: #f78b00;
+    background-repeat: no-repeat;
+    background-position: 10% 50%;
+}
+
+.Delete{
+    background-color: #f78b00;
+    background-repeat: no-repeat;
+    background-position: 10% 50%;
+}
