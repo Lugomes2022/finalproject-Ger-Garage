@@ -1,31 +1,30 @@
 <?php
 
-    if(isset($_POST['submit']))
-    {
-        print_r('name: ' .    $_POST['name']);
-        print_r('<br>');
-        print_r('email:'  .   $_POST['email']);
-        print_r('<br>');
-        print_r('password:' . $_POST['password']);
-        print_r('<br>');
-        print_r('phone:'  .  $_POST['phone']);
-        print_r('<br>');
-        print_r('birth_date:' . $_POST['birth_date']);
-        print_r('<br>');
-    }
+    if(isset($_POST['submit'])){    
 
     include_once('Databaseconection.php');
-
 
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $phone = $_POST['phone'];
-    $birth_date = $_POST['birth_date'];
     
-    $result = mysqli_query($conection, "INSERT INTO customer(name,email,password,phone,birth_date)
-    VALUES  ('$name','$email','$password','$phone','$birth_date')");
+    $result = mysqli_query($conection, "INSERT INTO customer(name,email,password,phone)
+    VALUES  ('$name','$email','$password','$phone')");
+
+    if (!$result) {
+    die('Error: ' . mysqli_error($conection));
+
+    }else{
         
+    // close database connection
+    mysqli_close($conection);
+
+    echo "<div class='success-message'>Thanks for registering with us.Please use your email and password to login</div>";
+
+    }
+        
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +35,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Let's get started</title>
     <style>
+        .success-message {
+                          padding: 20px;
+                          background-color: #d9ffcc;
+                          border-radius: 10px;
+                          text-align: center;
+                          font-size: 18px;
+                          font-weight: bold;
+                          animation: success-animation 2s ease-in-out;
+                        }
+
+        @keyframes success-animation {
+                                        from {opacity: 0;}
+                                        to {opacity: 1;}
+                                    }
+
         body{
             background-color: #f78b00;
             font-family: "Roboto", sans-serif;
@@ -109,14 +123,33 @@
         #submit:hover{
             background-image: linear-gradient(to right,rgb(0, 80, 172), rgb(80, 19, 195));
         }
+        .back-button{
+                    text-decoration: none;
+                    color: white;
+                    background-color: #00285f;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    margin-top: 10px;
+                    display: inline-block;
+                    }
+        .forward-button{
+                    text-decoration: none;
+                    color: white;
+                    background-color: #00285f;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    margin-top: 10px;
+                    float: right;
+                    }
     </style>
-</head>
+</head> 
 <body>
-    <a href="Main.php">Back</a>
     <div class="box">
-        <form action="Register.php" method="POST">
+        <form action="Register.php" method="post">
             <fieldset>
-                <legend><b>Please fill the lines below</b></legend>
+                <legend><b>Customer Registration Form</b></legend>
                 <br>
                 <div class="inputBox">
                     <input type="text" name="name" id="name" class="inputUser" required>
@@ -136,16 +169,12 @@
                 <div class="inputBox">
                     <input type="phone" name="phone" id="phone" class="inputUser" required>
                     <label for="phone" class="labelInput">Phone Number</label>
-
-                <br><br>
-                <label for="birth_date"><b>Birth_date:</b></label>
-                <input type="date" name="birth_date" id="birth_date" required>
-                <br><br>
-                
             
                 <input type="submit" name="submit" id="submit">
             </fieldset>
         </form>
     </div>
+    <a href="Main.php" class="back-button"> Back to the main page</a>
+    <a href="Login.php" class="forward-button"> Go to Login Page</a>
 </body>
-</html>
+</html> 

@@ -1,16 +1,9 @@
 <?php
-
-
-
 include_once('Databaseconection.php');
 
 
 ?>
-  
-  
-  
-  
-  
+
   <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,12 +19,9 @@ include_once('Databaseconection.php');
         <nav>
           <p class="brand">Welcome to <strong> Ger's Garage</strong></p>
           <ul>
-            <li><a href="Services.php">Services</a></li>
             <li><a href="Register.php">Register </a></li>
-            <li><a href="#About">About</a></li>
+            <li><a href="#about" onclick="goToAbout()">About</a></li>
             <button><a href="Login.php">Already a member? Log in here!</a></button>
-                
-
           </ul>
         </nav>
         <div class="header-block">
@@ -43,18 +33,9 @@ include_once('Databaseconection.php');
           <img src="Image/car-header.png" alt="Car" />
         </div>
       </div>
-
-
     </header>
-
-
-
     <section class="about" id="about">
       <div class="content">
-        <br><br><br>
-        <br><br><br>
-        
-
         <div class="title-wrapper-about">
           <p>Know about us</p>
           <h3>About</h3>
